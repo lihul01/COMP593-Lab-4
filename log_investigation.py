@@ -9,8 +9,6 @@ Parameters:
  log_path = Path of the gateway log file
 """
 import re
-import sys
-import os
 import log_analysis_lib
 import pandas as pd
 
