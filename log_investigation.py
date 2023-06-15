@@ -8,6 +8,9 @@ Usage:
 Parameters:
  log_path = Path of the gateway log file
 """
+import re
+import sys
+import os
 import log_analysis_lib
 import pandas as pd
 
@@ -82,9 +85,14 @@ def generate_source_ip_log(ip_address):
     Args:
         ip_address (str): Source IP address
     """
-    # TODO: Complete function body per step 11
     # Get all records that have the specified source IP address
+    # TODO FIX THE REGEX
+    data = log_analysis_lib.filter_log_by_regex(log_path, r'*SRC=' + re.escape(ip_address))[1]
     # Save all records to a plain text .log file
+    df = pd.DataFrame(data)
+    re.sub(".", "_", f"{ip_address}")
+    csv_filename = f'source_ip_{ip_address}.log'
+    df.to_csv(csv_filename, header = None, index = None, sep = ' ', mode = "a")
     return
 
 if __name__ == '__main__':
