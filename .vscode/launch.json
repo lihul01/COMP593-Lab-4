@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Analysis Lib",
+            "name": "Analysis Lib",
             "type": "python",
             "request": "launch",
             "program": "log_analysis_lib.py",
-            "console": "integratedTerminal",
+            "console": "externalTerminal",
             "justMyCode": true,
             "args": ["gateway.log"]
         },
